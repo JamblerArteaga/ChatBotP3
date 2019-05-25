@@ -97,7 +97,7 @@ public class ChatBotP3 extends JFrame {
             } else if (decision == 2) {
                 sendBot("Soy la solución a tus problemas, estoy para ayudarte");
             }
-        } else if (mensajeChat.toLowerCase().contains("que sabes hacer") || mensajeChat.toLowerCase().contains("ayudar") || mensajeChat.toLowerCase().contains("que haces") || mensajeChat.toLowerCase().contains("que puedes ayudarme") || mensajeChat.toLowerCase().contains("que conoces") || mensajeChat.toLowerCase().contains("que puedes ayudarme") || mensajeChat.toLowerCase().contains("me ayudas") || mensajeChat.toLowerCase().contains("ayudame")) {
+        } else if (mensajeChat.toLowerCase().contains("hacer") || mensajeChat.toLowerCase().contains("ayudar") || mensajeChat.toLowerCase().contains("que haces") || mensajeChat.toLowerCase().contains("que puedes ayudarme") || mensajeChat.toLowerCase().contains("que conoces") || mensajeChat.toLowerCase().contains("que puedes ayudarme") || mensajeChat.toLowerCase().contains("me ayudas") || mensajeChat.toLowerCase().contains("ayudame")) {
             int decision = (int) (Math.random() * 2 + 1);
             flagQuiereSeguro = true;
             if (decision == 1) {
@@ -165,12 +165,30 @@ public class ChatBotP3 extends JFrame {
                     + "\n"
                     + "El precio del seguro. El recibo contendrá además los recargos e impuestos que sean de legal aplicación.");
 
-        } else {
+        } else if (mensajeChat.toLowerCase().contains("costo") || mensajeChat.toLowerCase().contains("cuanto cuesta") || mensajeChat.toLowerCase().contains("prima")) {
+            sendBot("La cuota es mensual y es de Q300.00");
+
+        } else if (mensajeChat.toLowerCase().contains("gracias") || mensajeChat.toLowerCase().contains("adios") ) {
+             int decision = (int) (Math.random() * 3 + 1);
+            if (decision == 1) {
+                sendBot("Un gusto.");
+            } else if (decision == 2) {
+                sendBot("Estoy para servirte");
+            } else if (decision == 3) {
+                sendBot("Hasta luego.");
+            }
+
+        }else if (mensajeChat.toLowerCase().contains("otros")  ) {
+          
+                sendBot("Por el momento solamente trabajamos seguros de vida. Muy pronto estare encantado de brindarte mas información sobre otros productos.");
+            
+
+        }else {
             int decision = (int) (Math.random() * 3 + 1);
             if (decision == 1) {
                 sendBot("Aún no estoy preparado para este tema, investigare al respecto.");
             } else if (decision == 2) {
-                sendBot("prueba de nuevo con otra petición");
+                sendBot("Prueba de nuevo con otra petición");
             } else if (decision == 3) {
                 sendBot("No tengo la respuesta para esta petición");
             }
@@ -206,7 +224,6 @@ public class ChatBotP3 extends JFrame {
         parallel.addGroup(layout.createSequentialGroup().addComponent(bot_icon).addComponent(bot_bubble));
         sequential.addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE).addComponent(bot_icon).addComponent(bot_bubble));
 
-        //txtConversacionMensaje.append("AI: "+s+"\n");
     }
 
     public static void main(String[] args) {
@@ -222,11 +239,6 @@ public class ChatBotP3 extends JFrame {
             final JPanel panel = dgl.create();
 
             JScrollPane jsp = new JScrollPane(panel);
-//            Dimension d = new Dimension(panel.getComponent(0).getPreferredSize());
-//            jsp.getVerticalScrollBar().setUnitIncrement(d.height);
-//            d.height *= 600;
-//            jsp.getViewport().setPreferredSize(d);
-//            jsp.getViewport().setViewPosition(new Point(0, d.height));
             jsp.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
             jsp.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -245,7 +257,6 @@ public class ChatBotP3 extends JFrame {
                         panel.validate();
                         txtEntrada.setText("");
 
-                        //conv.tree.containsNode(conv.tree.root, mensaje, dgl, actionFlag, subActionFlag);
                         f.revalidate();
                         JScrollBar vertical = jsp.getVerticalScrollBar();
                         vertical.setValue(vertical.getMaximum());
@@ -270,7 +281,6 @@ public class ChatBotP3 extends JFrame {
                         panel.validate();
                         txtEntrada.setText("");
 
-                        // conv.tree.containsNode(conv.tree.root, mensaje, dgl, actionFlag, subActionFlag);
                         f.revalidate();
                         JScrollBar vertical = jsp.getVerticalScrollBar();
                         vertical.setValue(vertical.getMaximum());
