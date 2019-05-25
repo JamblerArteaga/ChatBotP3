@@ -165,7 +165,7 @@ public class ChatBotP3 extends JFrame {
                     + "\n"
                     + "El precio del seguro. El recibo contendrá además los recargos e impuestos que sean de legal aplicación.");
 
-        } else if (mensajeChat.toLowerCase().contains("costo") || mensajeChat.toLowerCase().contains("cuanto cuesta") || mensajeChat.toLowerCase().contains("prima")) {
+        } else if (mensajeChat.toLowerCase().contains("costo") || mensajeChat.toLowerCase().contains("precio")|| mensajeChat.toLowerCase().contains("cuanto cuesta") || mensajeChat.toLowerCase().contains("prima")) {
             sendBot("La cuota es mensual y es de Q300.00");
 
         } else if (mensajeChat.toLowerCase().contains("gracias") || mensajeChat.toLowerCase().contains("adios") ) {
@@ -178,9 +178,14 @@ public class ChatBotP3 extends JFrame {
                 sendBot("Hasta luego.");
             }
 
-        }else if (mensajeChat.toLowerCase().contains("otros")  ) {
+        }else if (mensajeChat.toLowerCase().contains("otro")  ||mensajeChat.toLowerCase().contains("otros")) {
           
                 sendBot("Por el momento solamente trabajamos seguros de vida. Muy pronto estare encantado de brindarte mas información sobre otros productos.");
+            
+
+        }else if (mensajeChat.toLowerCase().contains("riesgo") ) {
+          
+                sendBot("No estoy capacitado para medir el alcance de riesgo. Pero puedes comunicarte al numero 2222-2222.");
             
 
         }else {
